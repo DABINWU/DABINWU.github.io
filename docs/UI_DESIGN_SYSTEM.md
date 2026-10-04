@@ -1,5 +1,21 @@
 # 现有 UI 规则
 
+## 原色与数据层级更新（2026-10-05）
+
+图片均按源文件原色显示，无 grayscale；DB.jpg 本身仍为黑白照片。favicon 使用原蓝色骷髅 IMG_0036.png。新增 --data-blue:#175CFF、--data-green:#008A46、--data-purple:#7435DB，仅用于 7×7px 方形分类标记，文字保持黑色，且有文字标签辅助识别。核心数字 clamp(48px,5.5vw,80px)，700、行高 1、字距 -.06em、tabular-nums；手机 44px，子页侧栏 46px。首页三个数据模块各占 4 栏；分区标题 24px、手机 21px；游戏标题 26–36px、手机 25px；正文仍 12–13px。主体标题保持既有超大字号。
+
+## 当前全站设计规则（2026-10-05）
+
+本节与下方「首页新规则」共同描述现有共享 style.css，原有灰粉色设计为历史，不再用于现有页面。
+
+全站继承已确认首页的 #f4f1e8 米白、#000 黑、#DA291C 强调红、12 栏网格、400/700 字重、大标题/小正文、左对齐、细线分隔和大留白。字体栈增加 Noto Sans SC/Microsoft YaHei 作为中文无衬线回退，不加载网络字体。游戏封面与 WA 截图按原色显示，源文件保留。
+
+子页 subhero 标题 clamp(68px,10vw,150px)，行高 .95，字距 -.06em；上/下间距 48/70px。中文标题行高 1、字距 -.045em。内容区顶线 1px、padding 24px 0 52px；说明占 5–10 栏。ABOUT 照片 1–3、正文 5–10；游戏封面 4–6、正文 8–12；联系标签 1–3、账号 5–12；WA 名称 1–3、截图 5–7、操作 9–12。
+
+768px 下标题全宽 18vw、说明 7–12；ABOUT 照片 1–4、正文 6–12；游戏标签全宽、图片 1–4、说明 6–12；WA 标题全宽、图片 1–5、操作 7–12。所有版本维持 12 栏，不增加居中或两端对齐。
+
+语言控件：中文 / EN 两个原生按钮，当前项以红色及底线标记，aria-pressed 表示选中状态。操作按钮平涂黑底米白字、1px 边框，hover 红底；无阴影、渐变或动画。WA 展开内容 11px/1.5，允许任意换行、最大高 260px 内滚动。反馈区域 aria-live=polite。
+
 依据 `style.css` 全文及六个 HTML 的内联样式提取，2026-10-04。本文描述当前实现，不定义新设计；代码冲突时以代码为准。没有 CSS 变量、设计 token 层或统一组件库。
 
 ## 色彩
@@ -85,3 +101,20 @@
 ## 已有无效声明
 
 `.description` 的 `border:aquamarine 2px sold` 拼写无效；`.fox` 的 `max-width:1200px；` 使用全角分号；fox2 两列 `max-height:auto` 无效；`#toggle:checked hr` 既不匹配 checkbox 的后续兄弟内容，`display:solid` 也无效。这些只记录，不在本阶段纠正。
+
+## 首页新规则（2026-10-05，试稿）
+
+上文为五个旧子页面及原首页基线；以下来自当前 index.html 内嵌 CSS，尚未推广全站。
+
+- 颜色变量：--paper #f4f1e8、--ink #000、--red #DA291C；无阴影、渐变或纹理。头像使用现有黑白照片，并以 grayscale(1) 保证去色；favicon 为红色方形。
+- 字体：Helvetica、Helvetica Neue、Arial、sans-serif；常规 400、粗体 700。全局正文 13px/1.5、目录说明 12px；micro 11px/1.4、字距 .06em、uppercase；全部左对齐。
+- 全局 border-box，margin/padding 清零。page max-width 1600px，左右居中仅指容器，文字不居中；padding 28px 48px 24px。
+- grid 一律 repeat(12,minmax(0,1fr))，默认间距 24px。姓名占 1–8 栏，右侧注释占 9–12；肖像占 5–6，简介占 8–11；目录编号 1，标题 3–7，说明 8–11，箭头 12。
+- h1 clamp(96px,14.5vw,220px)，700，line-height .79，字距 -.075em，两行姓名及红色句点。目录标题 clamp(32px,4.1vw,62px)，700，line-height 1，字距 -.045em。简介 lead 26px/1.15、700。
+- 黑色 1px 分隔线。hero 上下 padding 38/54px；intro 22px 0 68px；directory 标题区底部 40px；entry 19px 0 26px；footer 顶部 margin 60px、padding 16px。红色短线 48×6px。
+- 1000px：gutter 16px，页面左右 28px，h1 15vw，肖像 5–7 栏、简介 9–12，lead 23px。
+- 768px：仍为 12 栏，gutter 10px，页面 20px；姓名全宽、25vw；说明和 metadata 分置后续行两侧；肖像 1–4、简介 7–12；目录标题 36px、说明另起行；details/summary 菜单可操作且默认展开。
+- 380px：页面左右 16px，简介移至 6–12 栏、lead 21px、micro 10px。
+- hover 使用强调红；focus-visible 红色 2px outline/5px offset。无动画与 transition。
+
+验证：1440、1000、769、768、390、320px 无横向溢出；1440 和 390px 全页截图已目视检查。字体在本机可能回退至 Arial，未引入网络字体。
