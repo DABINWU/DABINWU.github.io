@@ -100,3 +100,10 @@ PDF 已全文提取并渲染阅读，内容为教育经历、工作经历及个�
 首页结构为 masthead、超大姓名 hero、简介/肖像、四个目录入口、页脚。保留 ABOUT/CV/GAMES/CONTACT/TIMES 五个导航目标，新增同目标目录及回到顶部锚点；手机菜单使用原生 details/summary，默认展开。首页图片改用现有 source/DB.jpg，原 ali.png 保留。favicon 为内联红色方形 SVG。简介根据 ABOUT，教育地点/年份根据已读取 CV；没有虚构项目或工作经历。
 
 其他 HTML、style.css、1.js、图片/PDF 和 CNAME 未修改。全站统一改版须等用户确认首页效果。
+
+
+## iOS 箭头兼容修复（2026-10-05）
+
+用户确认刷新已解决旧 CSS 显示，本轮不修改缓存策略。六页链接及回到顶部箭头由 Unicode 字符改为内联 SVG，避免 iOS 将箭头替换为 emoji。viewBox 0 0 24 24，fill none、stroke currentColor、stroke-width 1.5；正文图标 1em，首页目录箭头 24px，向上箭头旋转 -45deg。图标 aria-hidden/focusable=false，由链接文字提供可访问名称。
+
+中英六页五种宽度布局、语言记忆、菜单、八份 WA 复制与失败反馈、PDF 回归通过；手机截图检查通过。未进行真实 iOS 设备测试，不能将本地 Chrome 结果记为 iOS 实测。CNAME、资源文件和业务脚本不变，未提交或部署。

@@ -118,3 +118,10 @@
 - hover 使用强调红；focus-visible 红色 2px outline/5px offset。无动画与 transition。
 
 验证：1440、1000、769、768、390、320px 无横向溢出；1440 和 390px 全页截图已目视检查。字体在本机可能回退至 Arial，未引入网络字体。
+
+
+## iOS 箭头兼容修复（2026-10-05）
+
+用户确认刷新已解决旧 CSS 显示，本轮不修改缓存策略。六页链接及回到顶部箭头由 Unicode 字符改为内联 SVG，避免 iOS 将箭头替换为 emoji。viewBox 0 0 24 24，fill none、stroke currentColor、stroke-width 1.5；正文图标 1em，首页目录箭头 24px，向上箭头旋转 -45deg。图标 aria-hidden/focusable=false，由链接文字提供可访问名称。
+
+中英六页五种宽度布局、语言记忆、菜单、八份 WA 复制与失败反馈、PDF 回归通过；手机截图检查通过。未进行真实 iOS 设备测试，不能将本地 Chrome 结果记为 iOS 实测。CNAME、资源文件和业务脚本不变，未提交或部署。
