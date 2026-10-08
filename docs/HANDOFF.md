@@ -1,9 +1,7 @@
-# 本轮交接
+﻿# Latest handoff
+## Ultrawide inner-page sizing (2026-10-08, current)
 
-日期：2026-10-05。基线 HEAD 0ae49cc；开始时工作区干净。
+User requested half-screen proportions on 21:9 displays, excluding homepage. At min-width 1720px, site-theme.css caps the five inner-page section content grids to 1440px using symmetric horizontal padding calc((100% - 1440px)/2). Header/footer content is capped to 1664px with minimum 28px side padding. Full-bleed section backgrounds remain; images and columns stop widening beyond the target width. Existing typography caps, spacing, mobile rules and functionality retained. Five inner-page asset versions updated to 20261008-ultrawide. Homepage files unchanged this round.
 
-用户确认刷新解决了旧 CSS 显示问题，本轮任务仅修复 iOS 箭头显示为蓝色 emoji。六页所有斜向链接箭头与回到顶部箭头改为内联线条 SVG，统一 currentColor 和尺寸，避免系统字体/emoji 渲染差异。新增共享 .icon-arrow、.icon-arrow-up 样式；没有更改缓存策略、页面内容或跳转路径。
-
-六页×中英×1440/769/768/390/320px 共 60 个布局状态通过；跨页/刷新语言、菜单、八份 WA 剪贴板逐字比对、复制反馈及 PDF HTTP 200 回归通过。首页中文手机截图已目视检查。使用本地 Chrome 无头浏览器，未在真实 iOS 设备上测试。
-
-修改六个 HTML、共享 CSS 及五份文档。CNAME、language.js、1.js、AGENTS、图片/PDF 保持不变；未提交、推送或部署。下次在真实 iOS 上确认线条 SVG 效果，开发仍以真实代码为准。
+Measured ABOUT/CV/GAMES/CONTACT/TIMES content and representative image/row widths at 1720/2560/3440px: stable sizes and no horizontal overflow. 3440x1244 TIMES screenshot inspected. Six-page bilingual five-width regression including 769/768px, navigation/language/menu/eight exact WA clipboard/feedback/PDF passed; no page errors. Real iOS not tested. CNAME and business scripts unchanged. No commit/push/deployment.
+Local preview: http://127.0.0.1:8765/. User visual acceptance pending.
