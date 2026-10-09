@@ -1,7 +1,9 @@
-﻿# Latest handoff
-## Ultrawide inner-page sizing (2026-10-08, current)
+# Latest handoff
 
-User requested half-screen proportions on 21:9 displays, excluding homepage. At min-width 1720px, site-theme.css caps the five inner-page section content grids to 1440px using symmetric horizontal padding calc((100% - 1440px)/2). Header/footer content is capped to 1664px with minimum 28px side padding. Full-bleed section backgrounds remain; images and columns stop widening beyond the target width. Existing typography caps, spacing, mobile rules and functionality retained. Five inner-page asset versions updated to 20261008-ultrawide. Homepage files unchanged this round.
+## 去掉头盔耳罩（2026-10-09，当前）
 
-Measured ABOUT/CV/GAMES/CONTACT/TIMES content and representative image/row widths at 1720/2560/3440px: stable sizes and no horizontal overflow. 3440x1244 TIMES screenshot inspected. Six-page bilingual five-width regression including 769/768px, navigation/language/menu/eight exact WA clipboard/feedback/PDF passed; no page errors. Real iOS not tested. CNAME and business scripts unchanged. No commit/push/deployment.
-Local preview: http://127.0.0.1:8765/. User visual acceptance pending.
+移除 source/helmet-wireframe.svg 左右耳罩的全部同心椭圆及横向网格。完整圆顶、面罩和下颌线稿保留，扫描范围、速度及仅活动扫描带显示的规则不变。SVG 与扫描脚本资源版本更新为20261009-no-earcups。原照片、背景水波与其他页面未修改。
+
+扫描推进、间歇透明、减少动态效果隐藏及六页双语五宽度（含768px）布局、导航、语言记忆、菜单、八份WA复制和反馈、PDF验证通过，无页面错误。真实iOS未测试。CNAME未变；未提交、推送或部署。旧记录为历史。
+
+预览：http://127.0.0.1:8765/ 。等待视觉确认，不继续未授权开发。

@@ -1,5 +1,61 @@
 # 项目状态与计划
 
+## 去掉头盔耳罩（2026-10-09，当前）
+
+移除 source/helmet-wireframe.svg 左右耳罩的全部同心椭圆及横向网格。完整圆顶、面罩和下颌线稿保留，扫描范围、速度及仅活动扫描带显示的规则不变。SVG 与扫描脚本资源版本更新为20261009-no-earcups。原照片、背景水波与其他页面未修改。
+
+扫描推进、间歇透明、减少动态效果隐藏及六页双语五宽度（含768px）布局、导航、语言记忆、菜单、八份WA复制和反馈、PDF验证通过，无页面错误。真实iOS未测试。CNAME未变；未提交、推送或部署。旧记录为历史。
+
+
+## 完整圆顶头盔扫描（2026-10-09，当前）
+
+恢复头盔上半部，移除 Y382 水平裁切及其直线上缘。外壳采用左右对称三次贝塞尔圆顶：顶部 Y20、中心 X500，控制点提供宽圆弧；纵向网格顶部展开，避免尖顶聚拢。下半部、耳罩、黑色密集线框和原照片保持。扫描范围改为归一化 Y-0.07 至0.88，仍为2.3秒扫描/3.2秒周期，仅显示活动扫描带，扫过及间歇透明。资源版本20261009-round-crown。
+
+已验证扫描推进、间歇画布完全透明、减少动态效果时隐藏；六页双语五种宽度（含769/768px）、导航、菜单、语言记忆、八份WA复制及反馈、PDF检查通过，无页面错误。检查桌面扫描截图。真实iOS未测试；CNAME未修改，未提交、推送或部署。以下旧记录为历史，本节优先。
+
+
+## Scan band only (2026-10-09, current)
+
+Removed both constant faint mesh and accumulated scanned-region layers from home-helmet-scan.js. Only the active moving horizontal band draws black wireframe. Canvas is cleared every frame and completely transparent during the pause after scanning. Existing clean horizontal cut, density, size and2.3s/cycle3.2s timing retained. Version20261009-band-only. Background water remains independent.
+
+Verified scan progression, clear pixels above cut, fully transparent canvas after scan and reduced-motion hiding. Six-page bilingual five-width layout/navigation/language/menu/eight exact WA clipboard/feedback/PDF regression passed; no page errors. Real iOS not tested. Photo/CNAME/business scripts unchanged; no commit/push/deployment.
+
+
+## Clean horizontal helmet cut (2026-10-09, current)
+
+User clarified the whole mesh above the red line must disappear. Added a single SVG horizontal clip at Y382 around ALL helmet groups, including structural outline, visor curves, mesh and ears, plus a straight upper rim. Previous Y340 strip is no longer visible. Scan starts above this boundary at normalized0.35 and ends0.88; density/black color/scale/2.3s scan remain. Version20261009-clean-cut.
+
+Canvas pixel check confirmed zero nontransparent pixels above the cut (excluding2px boundary tolerance). Scan/reduced-motion and six-page bilingual five-width navigation/language/menu/eight exact WA clipboard/feedback/PDF regression passed; no page errors. Desktop screenshot inspected. Real iOS not tested. Original photo/water/inner pages/CNAME/business scripts preserved. No commit/push/deployment.
+
+
+## Lower helmet only (2026-10-09, current)
+
+User annotated a cut across forehead and requested removal of upper elliptical crown. Removed crown silhouette from source/helmet-wireframe.svg shell/outline, replacing it with a straight upper boundary at SVG Y340. Clipped mesh now retains only lower face shield, ears and chin. Black dense linework, 1.12 scale, static original portrait and water retained. Scan now travels source-normalized Y0.30-0.88 across retained geometry; duration2.3s/cycle3.2s unchanged. Asset version20261009-lower-scan.
+
+Scan progression and reduced-motion hiding passed. Six-page bilingual five-width layout/navigation/language/menu/eight exact WA clipboard/feedback/PDF passed with no page errors. Desktop/mobile/3440px framing passed; desktop screenshot inspected and confirms no crown above the cut. Real iOS not tested. CNAME/business code unchanged; no commit/push/deployment.
+
+
+## Larger dense black helmet scan (2026-10-09, current)
+
+User requested larger full-head coverage, black lines, denser mesh and faster scan. Helmet geometry is scaled 1.12 about source center (0.5,0.44); canvas extends 10% on each side to avoid clipping enlarged crown/ears. SVG viewBox padded to -100 -100 1200 1200 so round crown remains intact. Black #000000 strokes: fine mesh .85 SVG units, structural outline 1.7. Mesh step reduced 25 to 12.5 in both directions, approximately doubling lines per direction; ear rings increased to five and cross-lines spacing 10. Base/scanned alpha .12/.36, active band 1. Scan takes 2.3 seconds (previously4.8), repeats every3.2 seconds (previously6.2). Original static photo, water, reduced-motion hiding and performance limits retained. Homepage version 20261009-dense-scan.
+
+Verified scan progression/reduced-motion, six-page bilingual five-width layouts (including769/768), navigation/menu/language/eight exact WA clipboard/feedback/PDF; no page errors. Desktop/mobile/3440px framing passed and desktop scan screenshot inspected. Real iOS not tested. No CNAME/business changes; no commit/push/deployment.
+
+
+## Complete wireframe helmet scan (2026-10-09, current)
+
+Replaced the solid helmet portrait with the original static source/dabin-portrait.png. New source/helmet-wireframe.svg provides transparent gray line-only dome, visor, ear cups and angular chin geometry, approximating the prior helmet. home-helmet-scan.js draws it on a homepage-only Canvas overlay aligned to the contained portrait square. Scans from top to bottom over 4.8 seconds in a 6.2-second repeating cycle: faint full outline, brighter scanned region and active horizontal band. Pointer press restarts; rendering capped at 30fps/DPR1.5 and paused offscreen/hidden. Reduced-motion hides the overlay. No solid fill, no image deformation or framework. Prior generated solid asset retained unused.
+
+Verified scan progression, original photo restoration and reduced-motion hiding; six-page bilingual five-width layout/navigation/menu/language/eight exact WA clipboard/feedback/PDF checks passed without page errors. Desktop/mobile/3440px framing passed. Desktop scan screenshot inspected. Real iOS not tested. Water and inner-page limits retained. No CNAME/business-code changes; no commit/push/deployment.
+
+
+## Homepage helmet portrait (2026-10-09, current)
+
+User authorized a complete silver Daft Punk-inspired helmet enclosing the homepage portrait head. Built-in image_gen created a photorealistic transparent 1254x1254 RGBA composite, saved as source/dabin-helmet-portrait.png. Only the hero image reference and bilingual alternative text changed. Original source/dabin-portrait.png remains intact and used by other portrait placements. Static composite, not an interactive 3D model or scan overlay. Existing hero dimensions, water, navigation and inner-page ultrawide limits retained. No new runtime library.
+
+Checks passed: six-page bilingual five-width layout (including 769/768), navigation/language/menu, eight exact WA clipboard payloads/feedback/PDF; no page errors. Desktop/mobile/3440px framing and background water/static-portrait/reduced-motion checks passed. Desktop screenshot visually inspected. Real iOS not tested. CNAME and business scripts unchanged; no commit/push/deployment. Local preview http://127.0.0.1:8765/.
+
+
 ## Unified site style (2026-10-08, current)
 
 User approved current homepage direction and authorized matching the other five pages. All five now share pale gray-green headers, dark olive content, lime controls, oversized serif titles, bold sans-serif section headings and asymmetric grid layouts. ABOUT/CV/GAMES/CONTACT/TIMES visual update complete locally. Homepage static portrait and water retained; no scan overlays restored. Visual user acceptance and real iOS testing remain pending. No commit/push/deployment authorized or performed.
